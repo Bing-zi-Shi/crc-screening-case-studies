@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>结直肠癌筛查案例分享</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Microsoft YaHei', Arial, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+            color: white;
+            text-align: center;
+            padding: 30px;
+        }
+        
+        .header h1 {
+            font-size: 28px;
+            margin-bottom: 10px;
+        }
+        
+        .header p {
+            font-size: 16px;
+            opacity: 0.9;
+        }
+        
+        .content {
+            padding: 40px;
+        }
+        
+        .main-title {
+            text-align: center;
+            margin-bottom: 40px;
+            color: #2c3e50;
+            font-size: 24px;
+            font-weight: bold;
+        }
+        
+        /* 案例分享样式 */
+        .case-studies {
+            display: grid;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .case-item {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            border: 2px solid #f8f9fa;
+        }
+        
+        .case-item:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 25px 50px rgba(0,0,0,0.15);
+        }
+        
+        .case-header {
+            background: linear-gradient(135deg, #3498db 0%, #2980b9 100%);
+            color: white;
+            padding: 25px;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+        
+        .case-avatar {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 30px;
+            border: 3px solid rgba(255,255,255,0.3);
+        }
+        
+        .case-info h3 {
+            font-size: 20px;
+            margin-bottom: 8px;
+        }
+        
+        .case-info p {
+            font-size: 15px;
+            opacity: 0.9;
+        }
+        
+        .case-content {
+            padding: 30px;
+        }
+        
+        .case-section {
+            margin-bottom: 25px;
+        }
+        
+        .case-section h4 {
+            color: #2c3e50;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 16px;
+        }
+        
+        .case-text {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 12px;
+            font-style: italic;
+            line-height: 1.8;
+            border-left: 4px solid #3498db;
+            color: #2c3e50;
+        }
+        
+        .case-result {
+            background: #d5f4e6;
+            padding: 20px;
+            border-radius: 12px;
+            color: #27ae60;
+            font-weight: 600;
+            border-left: 4px solid #27ae60;
+        }
+        
+        .case-tip {
+            background: #fff3cd;
+            padding: 20px;
+            border-radius: 12px;
+            color: #856404;
+            border-left: 4px solid #f39c12;
+            font-weight: 500;
+        }
+        
+        /* 不同案例的个性化样式 */
+        .case-success .case-header {
+            background: linear-gradient(135deg, #27ae60 0%, #229954 100%);
+        }
+        
+        .case-peace .case-header {
+            background: linear-gradient(135deg, #3498db 0%, #2980b9 100%);
+        }
+        
+        .case-prevention .case-header {
+            background: linear-gradient(135deg, #f39c12 0%, #e67e22 100%);
+        }
+        
+        /* 统计数据部分 */
+        .statistics-section {
+            background: #f8f9fa;
+            border-radius: 20px;
+            padding: 40px;
+            margin-top: 40px;
+            text-align: center;
+        }
+        
+        .statistics-title {
+            color: #2c3e50;
+            font-size: 22px;
+            margin-bottom: 30px;
+            font-weight: bold;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+        
+        .stat-item {
+            background: white;
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .stat-item:hover {
+            transform: translateY(-5px);
+        }
+        
+        .stat-number {
+            font-size: 36px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        
+        .stat-label {
+            color: #7f8c8d;
+            font-size: 14px;
+        }
+        
+        .stat-success {
+            color: #27ae60;
+        }
+        
+        .stat-primary {
+            color: #3498db;
+        }
+        
+        .stat-warning {
+            color: #f39c12;
+        }
+        
+        /* 行动号召部分 */
+        .cta-section {
+            background: linear-gradient(135deg, #3498db 0%, #2980b9 100%);
+            color: white;
+            padding: 40px;
+            border-radius: 20px;
+            text-align: center;
+            margin-top: 40px;
+        }
+        
+        .cta-title {
+            font-size: 22px;
+            margin-bottom: 15px;
+        }
+        
+        .cta-text {
+            font-size: 16px;
+            opacity: 0.9;
+            margin-bottom: 25px;
+            line-height: 1.6;
+        }
+        
+        .cta-button {
+            background: rgba(255,255,255,0.2);
+            color: white;
+            border: 2px solid white;
+            padding: 15px 30px;
+            border-radius: 25px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+        
+        .cta-button:hover {
+            background: white;
+            color: #3498db;
+            transform: translateY(-2px);
+        }
+        
+        @media (max-width: 768px) {
+            .content {
+                padding: 20px;
+            }
+            
+            .case-header {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>结直肠癌筛查案例分享</h1>
+            <p>真实故事，真实感受，让经验为您指路</p>
+        </div>
+        
+        <div class="content">
+            <h2 class="main-title">💬 真实案例分享</h2>
+            
+            <div class="case-studies">
+                <!-- 案例1：早期发现成功治愈 -->
+                <div class="case-item case-success">
+                    <div class="case-header">
+                        <div class="case-avatar">👩</div>
+                        <div class="case-info">
+                            <h3>李阿姨，58岁</h3>
+                            <p>退休教师，现居住于南岗区</p>
+                        </div>
+                    </div>
+                    <div class="case-content">
+                        <div class="case-section">
+                            <h4>📖 筛查经历</h4>
+                            <div class="case-text">
+                                "起初我很担心检查会很痛苦，但社区医生耐心解释后，我决定参加免费筛查。FIT检测结果异常，进一步做了肠镜检查。医生发现了早期结直肠癌，幸好发现得及时。"
+                            </div>
+                        </div>
+                        <div class="case-section">
+                            <h4>🎯 检查结果</h4>
+                            <div class="case-result">
+                                发现早期结直肠癌，及时手术治疗，预后良好
+                            </div>
+                        </div>
+                        <div class="case-section">
+                            <h4>💝 现状感受</h4>
+                            <div class="case-text">
+                                "现在术后2年了，恢复得很好。庆幸自己参加了筛查，如果再晚发现，后果不敢想象。现在我还在社区做志愿者，鼓励更多人参加筛查。"
+                            </div>
+                        </div>
+                        <div class="case-section">
+                            <h4>✨ 关键提示</h4>
+                            <div class="case-tip">
+                                早期发现的结直肠癌治愈率可达90%以上
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 案例2：筛查正常获得安心 -->
+                <div class="case-item case-peace">
+                    <div class="case-header">
+                        <div class="case-avatar">👨</div>
+                        <div class="case-info">
+                            <h3>张师傅，50岁</h3>
+                            <p>出租车司机，工作繁忙</p>
+                        </div>
+                    </div>
+                    <div class="case-content">
+                        <div class="case-section">
+                            <h4>📖 筛查经历</h4>
+                            <div class="case-text">
+                                "工作忙，一直没时间体检。社区推荐了这个小程序，在家就能做FIT检测，很方便。检测后发现结果正常，心里很踏实。"
+                            </div>
+                        </div>
+                        <div class="case-section">
+                            <h4>🎯 检查结果</h4>
+                            <div class="case-result">
+                                筛查结果正常，排除患癌风险
+                            </div>
+                        </div>
+                        <div class="case-section">
+                            <h4>💝 现状感受</h4>
+                            <div class="case-text">
+                                "检查结果正常，心里踏实了。现在我每年都会定期筛查，也推荐身边朋友参加。筛查让我更关注自己的健康，生活也更有规律了。"
+                            </div>
+                        </div>
+                        <div class="case-section">
+                            <h4>✨ 关键提示</h4>
+                            <div class="case-tip">
+                                90%以上的筛查结果都是正常的，定期筛查让生活更安心
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 案例3：发现息肉及时预防 -->
+                <div class="case-item case-prevention">
+                    <div class="case-header">
+                        <div class="case-avatar">👨</div>
+                        <div class="case-info">
+                            <h3>王先生，55岁</h3>
+                            <p>企业管理者，有家族史</p>
+                        </div>
+                    </div>
+                    <div class="case-content">
+                        <div class="case-section">
+                            <h4>📖 筛查经历</h4>
+                            <div class="case-text">
+                                "父亲曾患结直肠癌，所以我特别重视这方面的检查。通过风险评估发现自己是高危人群，立即进行了全面筛查。结肠镜检查发现了几个息肉，及时切除了。"
+                            </div>
+                        </div>
+                        <div class="case-section">
+                            <h4>🎯 检查结果</h4>
+                            <div class="case-result">
+                                发现并切除癌前病变（息肉），有效预防了癌症发生
+                            </div>
+                        </div>
+                        <div class="case-section">
+                            <h4>💝 现状感受</h4>
+                            <div class="case-text">
+                                "医生说息肉如果不及时处理，很可能发展成癌症。现在定期复查，息肉没有复发。感谢筛查项目，让我避免了一场大病。"
+                            </div>
+                        </div>
+                        <div class="case-section">
+                            <h4>✨ 关键提示</h4>
+                            <div class="case-tip">
+                                及时发现并切除息肉可以有效预防结直肠癌的发生
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 案例4：消除恐惧积极参与 -->
+                <div class="case-item case-success">
+                    <div class="case-header">
+                        <div class="case-avatar">👵</div>
+                        <div class="case-info">
+                            <h3>刘奶奶，62岁</h3>
+                            <p>退休职工，初次筛查</p>
+                        </div>
+                    </div>
+                    <div class="case-content">
+                        <div class="case-section">
+                            <h4>📖 筛查经历</h4>
+                            <div class="case-text">
+                                "一开始听说要做肠镜检查，我特别害怕。社区医生详细解释了整个过程，还让我看了其他人的经历分享。最后决定试试，发现其实没那么可怕。"
+                            </div>
+                        </div>
+                        <div class="case-section">
+                            <h4>🎯 检查结果</h4>
+                            <div class="case-result">
+                                筛查过程顺利，结果正常，消除了内心恐惧
+                            </div>
+                        </div>
+                        <div class="case-section">
+                            <h4>💝 现状感受</h4>
+                            <div class="case-text">
+                                "现在我不再害怕筛查了，还鼓励老伴和邻居们也去检查。其实筛查过程比想象中简单多了，医生护士都很专业很贴心。"
+                            </div>
+                        </div>
+                        <div class="case-section">
+                            <h4>✨ 关键提示</h4>
+                            <div class="case-tip">
+                                消除对筛查的恐惧心理，专业医护团队让检查更安全更舒适
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 统计数据展示 -->
+            <div class="statistics-section">
+                <h3 class="statistics-title">📊 筛查统计数据</h3>
+                <p style="color: #7f8c8d; margin-bottom: 20px;">以下数据来源于国内外权威研究和实际筛查结果</p>
+                
+                <div class="stats-grid">
+                    <div class="stat-item">
+                        <div class="stat-number stat-success">90%+</div>
+                        <div class="stat-label">筛查结果正常</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number stat-primary">20-30%</div>
+                        <div class="stat-label">死亡率下降</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number stat-warning">90%+</div>
+                        <div class="stat-label">早期癌症治愈率</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number stat-success">15-20%</div>
+                        <div class="stat-label">可发现癌前病变</div>
+                    </div>
+                </div>
+                
+                <div style="margin-top: 30px; padding: 20px; background: white; border-radius: 12px; border-left: 4px solid #3498db;">
+                    <h4 style="color: #2c3e50; margin-bottom: 10px;">💡 重要提醒</h4>
+                    <p style="color: #7f8c8d; line-height: 1.6;">
+                        每个人的情况不同，以上案例仅供参考。如果您符合筛查条件，建议及时参与筛查。
+                        如有任何疑问，请咨询专业医务人员。
+                    </p>
+                </div>
+            </div>
+            
+            <!-- 行动号召 -->
+            <div class="cta-section">
+                <h3 class="cta-title">🎯 开始您的健康筛查之旅</h3>
+                <p class="cta-text">
+                    看完这些真实案例，您是否也想为自己的健康做出明智选择？
+                    <br>早一天筛查，多一份安心。让我们一起守护健康，拥抱美好生活。
+                </p>
+                <a href="#" class="cta-button">立即开始筛查评估</a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // 添加一些交互效果
+        document.addEventListener('DOMContentLoaded', function() {
+            // 为统计数据添加动画效果
+            const statNumbers = document.querySelectorAll('.stat-number');
+            
+            function animateNumbers() {
+                statNumbers.forEach(stat => {
+                    const finalText = stat.textContent;
+                    const isPercentage = finalText.includes('%');
+                    const number = parseInt(finalText.replace(/[^\d]/g, ''));
+                    
+                    let current = 0;
+                    const increment = number / 30; // 30帧动画
+                    
+                    function updateNumber() {
+                        current += increment;
+                        if (current < number) {
+                            stat.textContent = Math.floor(current) + (isPercentage ? '%' : '') + (finalText.includes('+') ? '+' : '');
+                            requestAnimationFrame(updateNumber);
+                        } else {
+                            stat.textContent = finalText;
+                        }
+                    }
+                    
+                    updateNumber();
+                });
+            }
+            
+            // 使用 Intersection Observer 来触发动画
+            const observer = new IntersectionObserver(entries => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        animateNumbers();
+                        observer.unobserve(entry.target);
+                    }
+                });
+            });
+            
+            const statsSection = document.querySelector('.statistics-section');
+            if (statsSection) {
+                observer.observe(statsSection);
+            }
+            
+            // 为案例卡片添加点击展开/收缩效果
+            const caseItems = document.querySelectorAll('.case-item');
+            caseItems.forEach(item => {
+                item.addEventListener('click', function() {
+                    // 可以在这里添加更多交互逻辑
+                    this.style.transform = 'scale(1.02)';
+                    setTimeout(() => {
+                        this.style.transform = '';
+                    }, 200);
+                });
+            });
+        });
+    </script>
+</body>
+</html>
